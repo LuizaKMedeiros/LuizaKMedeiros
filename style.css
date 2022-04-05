@@ -1,0 +1,679 @@
+/* ========= RESET ==================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  /*definiu que nenhum item do menu terá . (tópico) que vem pré definido*/
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+/* ========= VARIABLES ==================*/
+:root {
+  --header-height: 4.5rem;
+
+  /*colors*/
+  --hue: 345;
+  /* HSL color mode */
+  --base-color: hsl(var(--hue) 36% 57%);
+  --base-color-second: hsl(var(--hue) 65% 88%);
+  --base-color-alt: hsl(var(--hue) 57% 53%);
+  --title-color: hsl(var(--hue) 41% 10%);
+  --text-color: hsl(0 0% 46%);
+  --text-color-light: hsl(0 0% 98%);
+  --body-color: hsl(0 0% 98%);
+
+  /*Fonts*/
+  --title-font-size: 1.875rem;
+  --subtitle-font-size: 1rem;
+  
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'DM Sans', sans-serif;
+}
+
+/* ========= BASE ==================*/
+
+html {
+  scroll-behavior: smooth;
+}
+/*essa funcionalidade faz ficar mais suave (correr) a transicao do menu para pagina quando clica no botao*/
+
+body {
+  font: 400 1rem var(--body-font);
+  color: var(--text-color);
+  background: var(--body-color);
+  -webkit-font-smoothing: antialiased;
+}
+
+.title {
+  font: 700 var(--title-font-size) var(--title-font);
+  color: var(--title-color);
+  -webkit-font-smoothing: auto;
+}
+
+/* display inline-flex botão ajusta nos limites desejáveis, transition: faz com que a cor do botão mude quando passa o mouse em cima .button:hover foi criado para que ocorra a transição*/
+.button {
+  background-color: var(--base-color);
+  color: var(--text-color-light);
+  height: 3.5rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2rem;
+  border-radius: 0.25rem;
+  font: 500 1rem var(--body-font);
+  transition: background 0.3s;
+}
+
+.button:hover {
+  background: var(--base-color-alt);
+}
+/* linear gradient faz uma linha gradientede separação de páginas variante --hue criada em :root você consegue alterar as cores  */
+.divider-1 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 36%, 57%, 1),
+    hsla(var(--hue), 65%, 88%, 0.34)
+  );
+}
+
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
+}
+:root {
+  font-size: 100%; /* 16px */
+}
+/*alingn-items: alinha os textos display: ajusta dimensão justify-content: cria espaço logo e menu, tamanho da fonte= valor do pixel dividido por 16, border-botom: linha cinza abaixo da logo image::before cria um elemento fantasma*/
+
+/* ========= LAYOUT ==================*/
+.container {
+  width: 100%;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+.section {
+  /* calc é uma função que nesse caso serviu para deixar um espaço de 32pixel entre o topo fixo e todas as paginas*/
+  padding: calc(5rem + var(--header-height)) 0;
+}
+
+.section .title {
+  margin-bottom: 1rem;
+}
+
+.section .subtitle {
+  font-size: var(--subtitle-font-size);
+}
+
+.section header {
+  margin-bottom: 4rem;
+}
+
+.section header strong {
+  color: var(--base-color);
+}
+
+/* cria no header width, position... para garantir que o botão da logo fique sempre fixo no topo da página*/
+#header {
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 2rem;
+  display: flex;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: var(--body-color);
+  width: 100%;
+}
+
+#header.scroll {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ========= LOGO ==================*/
+.logo {
+  font: 700 1.31rem var(--title-font);
+  color: var(--title-color);
+}
+.logo span {
+  color: var(--base-color);
+}
+.logo-alt span {
+  color: var(--body-color);
+}
+
+/* ========= NAVIGATION ==================*/
+nav {
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav ul li {
+  text-align: center;
+}
+
+nav ul li a {
+  transition: color 0.2s;
+  position: relative;
+}
+
+/*Para criar a linha ambaixo de cada item quando passa o mouse no menu, hover faz mudar a cor o bottom cria a linha embaixo do item, transition faz a linha ficar crescente. Width em a::after 0% e em a:hover::after 100% indica o início e fim da linha.*/
+nav ul li a:hover,
+nav ul li a.active {
+  color: var(--base-color);
+}
+
+nav ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--base-color);
+
+  position: absolute;
+  left: 0;
+  bottom: -1.5rem;
+
+  transition: width 0.2s;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+  width: 100%;
+}
+
+nav .menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.2s;
+}
+nav .menu ul {
+  display: none;
+}
+
+/*Mostrar menu*/
+/* nav.show sem espaço para receber a classe show e com espaço .menu para procurar o menu.
+vw e vh view port higth e width significa que é para utilizar todo o espaço de largura e altura, position fixed fixa o menu */
+nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+
+  background: var(--body-color);
+
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  /*Essa definição abaixo deixou os itens do menu no meio e centro da tela*/
+  display: grid;
+  place-content: center;
+}
+nav.show .menu ul {
+  display: grid;
+}
+
+/*Define o espaçamento dos itens do menu que é para ser de 64px*/
+nav.show ul.grid {
+  gap: 4rem;
+}
+
+/*toggle menu */ /*faz a troca de botoes*/
+.toggle {
+  color: var(--base-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  /*cursor poiter muda a seta no icone para mao*/
+}
+nav .icon-clear {
+  visibility: hidden;
+  opacity: 0;
+
+  position: absolute;
+  top: -1.5rem;
+  right: 1.5rem;
+  transition: 0.2s;
+}
+
+nav.show div.icon-clear {
+  visibility: visible;
+  opacity: 1;
+  top: 1.5rem;
+}
+
+/* ========= HOME ==================*/
+#home {
+  overflow: hidden;
+}
+#home .container {
+  margin: 0;
+}
+/* z-index: coloca uma imagem atras da outra, para a imagem virar fundo sombra é necessário fazer a regra de 3 por exemplo 405 - 100 68 - x top:16.8 / Para fazer as bordas arredondas da imagem usa border-radius/ Para centralizar os textos usa text-aling: center/ Para colocar os espaços entre título e subtítulo criou home text h1 e p e definiu margin-bottom de acordo com o calculo/ overflow: não deixa as bordas transbordarem da tela */
+#home .image {
+  position: relative;
+}
+
+#home .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -16.8%;
+  left: 16.7%;
+  z-index: 0;
+}
+
+#home .image img {
+  position: relative;
+  right: 2.93rem;
+}
+#home .image img,
+#home .image::before {
+  border-radius: 0.25rem;
+}
+
+#home .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: center;
+}
+
+#home .text h1 {
+  margin-bottom: 1rem;
+}
+/* max-width ajuda a controlar para não ter uma barra rolante embaixo*/
+#home .text p {
+  margin-bottom: 2rem;
+  max-width: 100%;
+}
+
+/* ========= ABOUT ==================*/
+
+#about {
+  background: white;
+}
+
+#about .container {
+  margin: 0;
+}
+
+#about .image {
+  position: relative;
+}
+
+#about .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--base-color-second);
+  position: absolute;
+  top: -8.3%;
+  left: -33%;
+  z-index: 0;
+}
+/*calculo do deslocamento da imagem acima: 192*100/591= 33 e 34*100/405= 8.3, esses valores sao obtidos na imagem referencia em figma */
+
+#about .image img {
+  position: relative;
+}
+#about .image img,
+#about .image::before {
+  border-radius: 0.25rem;
+}
+
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+/* ========= SERVICES ==================*/
+.cards.grid {
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  /*box-shadow seleciona a imagem em figma, vai em inspect e copia.*/
+  border-bottom: 0.25rem solid var(--base-color);
+  border-radius: 0.25rem 0.25rem 0 0;
+  text-align: center;
+}
+
+.card i {
+  display: block;
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  color: var(--base-color);
+}
+
+.card title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* ========= Testimonials ==================*/
+#testimonials {
+  background: white;
+}
+
+#testimonials .container {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+#testimonials header {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0;
+}
+
+#testimonials blockquote {
+  padding: 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 0.25rem;
+}
+
+#testimonials blockquote p {
+  position: relative;
+  text-indent: 1.875rem;
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+}
+
+#testimonials blockquote p span {
+  font: 700 2.5rem serif;
+  position: absolute;
+  top: -0.375rem;
+  left: -1.875rem;
+  color: var(--base-color);
+}
+
+#testimonials cite {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+}
+
+#testimonials cite img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  clip-path: circle();
+  margin-right: 0.5rem;
+}
+
+/*swiper*/
+
+.swiper-slide {
+  height: auto;
+  padding: 4rem 1rem;
+}
+
+.swiper-pagination-bullet {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--base-color);
+}
+
+/* ========= Contact==================*/
+#contact .grid {
+  gap: 4rem;
+}
+
+#contact .text p {
+  margin-bottom: 2rem;
+}
+
+#contact .button i,
+#contact ul li i {
+  font-size: 1.5rem;
+  margin-right: 0.625rem;
+}
+
+#contact ul.grid {
+  gap: 2rem;
+}
+
+#contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+#contact ul li i {
+  color: var(--base-color);
+}
+
+/* ========= Footer ==================*/
+footer {
+  background: var(--base-color);
+}
+
+footer.section {
+  padding: 4rem 0;
+}
+
+footer .logo {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+footer .brand p {
+  color: var(--text-color-light);
+  margin-bottom: 0.75rem;
+}
+
+footer i {
+  font-size: 1.5rem;
+  color: var(--text-color-light);
+}
+
+ /*ajustar os icones com grid*/
+footer .social {
+  grid-auto-flow: column;
+  width: fit-content;
+}
+
+footer .social a {
+  /*margin-right coloca os icone com espaçamento  margin-right: 2rem; como utilizou o grid retirou o margin-right*/
+  transition: 0.3s;
+  display: inline-block;
+}
+
+footer .social a:hover {
+  /*faz um movimento nos icones quando passa o mouse em cima*/
+  transform: translateY(-8px);
+}
+
+/*Back to top*/
+.back-to-top {
+  background: var(--base-color);
+  color: var(--text-color-light);
+
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  padding: 0.3rem;
+  clip-path: circle();
+
+  font-size: 1.5rem;
+  line-height: 0;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: 0.3s;
+  transform: translateY(100%);
+}
+
+.back-to-top.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/*Responsive*/
+/*Media Queries - adiciona break points*/
+/*extra large devices: 1200 > */
+@media (min-width: 1200px) {
+  /*reusable classes*/
+.container {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section {
+  padding: 10rem 0;
+}
+
+.section header,
+#testimonials header {
+  max-width: 32rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.button{
+  height: 3.125rem;
+}
+
+/*Menu - alterar menu - navigation*/
+nav .menu {
+  opacity: 1;
+  visibility: visible;
+  top: 0;
+}
+
+nav .menu ul {
+  display: flex;
+  gap: 2rem;
+}
+
+nav .menu ul li a.title {
+  font: 400 1rem var(--body-font);
+  -webkit-font-smoothing: antialiased;
+}
+
+nav .menu ul li a.title.active {
+  font-weight: bold;
+  -webkit-font-smoothing: auto;
+}
+
+nav .icon-menu {
+  display: none;
+}
+/*Layout*/
+main {
+  margin-top: var(--header-height);
+}
+
+/*Home - alterar ordem dos itens*/
+
+#home .container {
+  grid-auto-flow: column;
+  /*width: fit-content;*/
+  justify-content: space-between;
+  margin: 0 auto;
+}
+#home .image {
+  order: 1;
+}
+
+#home .text {
+  order: 0;
+  max-width: 24rem;
+  text-align: left;
+}
+/*About*/
+
+#about .container {
+  margin: 0 auto;
+  grid-auto-flow: column; 
+}
+
+/*Service*/
+.cards {
+  /*1fr divide os cards em fraçoes*/
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+/*Testimonials*/
+#testimonials .container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*Contacts*/
+#contact .container {
+  grid-auto-flow: column;
+  align-items: center;
+}
+
+#contact .text {
+  max-width: 25rem;
+}
+
+/*Footer*/
+footer.section {
+  padding: 3.75rem 0;
+}
+
+footer .container {
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .logo{
+  font-size: 2.25rem;
+}
+}
+/*large devices: 1023 > */
+/*large devices: 992> */
+@media (min-width: 992px) {
+  :root {
+    --title-font-size: 2.25rem;
+    --subtitle-font-size: 1.125rem;
+  }
+}
+/*medium devices: 767> */
+
+
+

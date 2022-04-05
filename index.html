@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <!-- PAGE INFO-->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OriginSix</title>
+
+    <!--ÍCONES-->
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+
+    <!--Swiper-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--id= identifica no css header exclusivo, chama no css com #-->
+    <!--nav= link navegação class= chama no css, pode ter uma ou mais class= container (limite na sessão, padrão de margem) criou spam no meio da logo para ajudar no alinhamento e ser possível a divisão de cores-->
+    <header id="header" class="">
+      <!--no css criou display + justify content para separar a logo do menu-->
+      <!-- chamou a class de container show para utilizar no javascrip, no css vai utilizar para ser possível clicar no botão -->
+      <nav class="container">
+        <a class="logo" href="#">Luiza<span>Medeiros</span>.</a>
+        <div class="menu">
+          <!-- início do menu - ul>li*5>a foi utilizado para criar os itens do menu -->
+          <ul class="grid">
+            <li><a class="title" href="#home">Início</a></li>
+            <li><a class="title" href="#about">Sobre</a></li>
+            <li><a class="title" href="#services">Serviços</a></li>
+            <li><a class="title" href="#testimonials">Depoimentos</a></li>
+            <li><a class="title" href="#contact">Contato</a></li>
+          </ul>
+        </div>
+        <!-- fim do menu-->
+        <!-- .open e .close para abrir div-->
+        <div class="toggle icon-menu"></div>
+        <div class="toggle icon-clear"></div>
+      </nav>
+    </header>
+
+    <!-- Home -->
+    <main>
+      <section class="section" id="home">
+        <div class="container grid">
+          <div class="image">
+            <!--scr "https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGFpcmRyZXNzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" imagem original-->
+            <img
+            src=https://media.istockphoto.com/photos/full-table-of-italian-meals-on-plates-pizza-pasta-ravioli-carpaccio-picture-id1227415751?b=1&k=20&m=1227415751&s=170667a&w=0&h=7BO67R9KTuIzLmUEKY-qXx0PS9jxs3CsFK1rQy6iqbw=
+            alt="Mesa com pizza e massas" />
+          </div>
+          <div class="text">
+            <h2 class="title">Jantares especiais para sua família.</h2>
+            <p>Uma experiência gastronômica como você nunca viu.</p>
+            <a class="button" href="#">Agendar um horário</a>
+          </div>
+          <!--img= endereço da imagem alt= leitura acessível/ h1= título p= parágrafo subtítulo a= tag botão de navegação container grid= grid habilita novas funções no css -->
+        </div>
+      </section>
+      <div class="divider-1"></div>
+
+      <!-- About -->
+      <section class="section" id="about">
+        <!-- Para criar section do menu digita section.section#about>.container.grid o id# é o referente a cada tópico do menu-->
+        <!--para criar as class image e text usou .image e .text, para criar class title h2 usou h2.title+p*3-->
+        <div class="container grid">
+          <div class="image">
+            <img
+            src=https://media.istockphoto.com/photos/woman-making-pasta-picture-id627987614?b=1&k=20&m=627987614&s=170667a&w=0&h=UcfJinafaf6mUZcNBaIwcpPMvZgGImY4A1iPN9gQTGc=
+            alt="2 maos fazendo massa fresca" />
+          </div>
+          <div class="text">
+            <h2 class="title">Sobre nós</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel
+              ratione minima deleniti blanditiis veritatis eveniet tempora nam,
+              illo voluptas beatae fugiat cum, amet, corporis consequuntur
+              distinctio fuga nemo accusantium. Quibusdam.
+            </p>
+            <br />
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempore
+              et exercitationem omnis cupiditate, nisi minima voluptatum amet
+              excepturi eaque dolorum fuga pariatur repellendus possimus
+              consectetur officiis modi laboriosam? Molestias, sapiente.
+            </p>
+            <br />
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Voluptatibus amet rem nobis facilis reprehenderit! Commodi
+              aspernatur accusamus repellendus maxime maiores omnis rerum,
+              veritatis odit expedita labore pariatur magnam tenetur? Esse!
+            </p>
+          </div>
+        </div>
+      </section>
+      <div class="divider-2"></div>
+
+      <!-- Services -->
+      <section class="section" id="services">
+        <div class="container grid">
+          <!--para criar os cards usou .cards e dentro usou .card*3>(.icon-)+h3.title+p-->
+          <header>
+            <h2 class="title">Serviços</h2>
+            <p class="subtitle">
+              Com mais de 10 anos no mercado, o <strong>Beautysalon</strong> já
+              conquistou clientes de inúmeros países com seus tratamentos
+              exclusivos e totalmente naturais
+            </p>
+          </header>
+          <div class="cards grid">
+            <div class="card">
+              <i class="icon-woman-hair"></i>
+              <h3 class="title">Jantares</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aspernatur assumenda reprehenderit veniam error aliquam minus
+                omnis ipsa. Placeat labore odio hic, nesciunt molestiae, eius
+                dicta dolorem ipsa illum, tempore perferendis.
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-trim"></i>
+              <h3 class="title">Almoços</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aspernatur assumenda reprehenderit veniam error aliquam minus
+                omnis ipsa. Placeat labore odio hic, nesciunt molestiae, eius
+                dicta dolorem ipsa illum, tempore perferendis.
+              </p>
+            </div>
+            <div class="card">
+              <i class="icon-cosmetic"></i>
+              <h3 class="title">Festas</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Aspernatur assumenda reprehenderit veniam error aliquam minus
+                omnis ipsa. Placeat labore odio hic, nesciunt molestiae, eius
+                dicta dolorem ipsa illum, tempore perferendis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="divider-1"></div>
+
+      <!-- Testimonials -->
+      <!--Para criar a section class: section.section#Testimonials>.container.grid>header>h2-->
+      <section class="section" id="testimonials">
+        <div class="container">
+          <header>
+            <h2 class="title">Depoimentos de quem já passou por aqui</h2>
+          </header>
+
+          <!--Para criar class testimonials: .testimonials / Para criar individual: .testimonial*3-->
+          <div class="testimonials swiper">
+            <div class="swiper-wrapper">
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Saepe facilis praesentium autem iusto! Cupiditate incidunt,
+                    odit quasi autem quaerat possimus corrupti officiis vel.
+                  </p>
+                  <!--cite é uma tag especial para usar em citacoes-->
+                  <cite>
+                    <img
+                      src="assets/Fotos/51.jpg"
+                      alt="Foto de Wanessa Souza"
+                    />
+                    Wanessa Souza
+                  </cite>
+                </blockquote>
+                <!--Para criar as "" especiais nos depoimentos foi criado o span com o caracter especial equivalente-->
+              </div>
+
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Saepe facilis praesentium autem iusto! Cupiditate incidunt,
+                    odit quasi autem quaerat possimus corrupti officiis vel.
+                  </p>
+                  <cite>
+                    <img
+                      src="https://randomuser.me/api/portraits/women/89.jpg"
+                      alt="Foto de Vitoria Ferreira"
+                    />
+                    Vitoria Ferreira
+                  </cite>
+                </blockquote>
+              </div>
+              <div class="testimonial swiper-slide">
+                <blockquote>
+                  <p>
+                    <span>&ldquo;</span>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Saepe facilis praesentium autem iusto! Cupiditate incidunt,
+                    odit quasi autem quaerat possimus corrupti officiis vel.
+                  </p>
+                  <cite>
+                    <img src="assets/Fotos/84.jpg" alt="Foto de Maria Paula" />
+                    Maria Paula
+                  </cite>
+                </blockquote>
+              </div>
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- Contact -->
+      <!-- section.section#contact>.container.grid-->
+      <section class="section" id="contact">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Entre em contato com a gente!</h2>
+            <p>
+              Entre em contato com a Beautysalon, queremos tirar suas dúvidas,
+              ouvir suas críticas e sugestões.
+            </p>
+            <a
+              href="https://api.whatsapp.com/send?phone=+49159&text= Ola, gostaria de mais informacoes!"
+              class="button"
+              target="_blank"
+              ><i class="icon-whatsapp">Entrar em contato</i></a
+            >
+          </div>
+
+          <div class="links">
+            <ul class="grid">
+              <li><i class="icon-phone"></i> 11 99845-6754</li>
+              <li><i class="icon-map-pin"></i> R. Amauri Souza, 346</li>
+              <li><i class="icon-mail"></i> contato@beautysalon.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+    </main>
+
+    <!--Footer-->
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home">Luiza<span>Medeiros</span>.</a>
+          <p>©2021 Beautysalon.</p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+
+        <div class="social grid">
+          <!-- a*3>i.icon - target blank é para criar uma nova janela, sem fechar a atual-->
+          <a href="http://instagram.com" target="_blank">
+            <i class="icon-instagram"></i></a
+          ><a href="http://facebook.com" target="_blank">
+            <i class="icon-facebook"></i></a
+          ><a href="http://youtube.com" target="_blank">
+            <i class="icon-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <!--Botão topo-->
+    <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+    <!--Swiper-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!--ScrollReveal-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!--main.js-->
+    <script src="main.js"></script>
+  </body>
+</html>
